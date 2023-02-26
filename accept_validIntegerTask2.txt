@@ -1,0 +1,27 @@
+<!-- 
+
+This script only accepts valid interger from 1 to 20
+
+-->
+<html>
+<body>
+<h1>Valid integer validator</h1>
+<p>Please enter a integer number from 1 to 20</p>
+<input id = "number">
+<button type = "button" onClick="myIntegerFunction()">Submit</button>
+<p id = "test"></p>
+<script>
+    function myIntegerFunction(){
+        let testNum = document.getElementById("number").value; //get value of input field that is number 
+        let displaytext;
+        if(isNaN(testNum) || testNum < 1 || testNum > 20) {
+            displaytext="Input invalid, enter number from 1 to 20 only";
+        }
+        else{
+            displaytext= "Input text accepted!";
+        }
+        document.getElementById("test").innerHTML = displaytext;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* This script validates if the wikipedia link ar equal. If the wikipedia link on myURL2 is different than link not match message displayed to the end user. */
+function getDomain(url) {
+    var prefix = /^https?:\/\//i;
+    var domain = /^[^\/:]+/;
+    // remove any prefix
+    url = url.replace(prefix, "");
+    // assume any URL that starts with a / is on the current page's domain
+    if (url.charAt(0) === "/") {
+        url = window.location.hostname + url;
+    }
+    // now extract just the domain
+    var match = url.match(domain);
+    if (match) {
+        return(match[0]);
+    }
+    return(null);
+}
+var myURL = getDomain('https://en.wikipedia.org/wiki/Canada');
+myURL.host;  
+console.log(myURL);
+
+var myURL2 = getDomain('https://en.wikipedia.org');
+myURL2.host;
+console.log(myURL2);
+
+if (myURL == myURL2){
+    console.log("The link matches!");
+}
+else{
+    console.log("The link does not match!");
+}
